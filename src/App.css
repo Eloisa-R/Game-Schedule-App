@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 
 .App {
@@ -11,9 +12,10 @@
 
 .App-header {
   display: flex;
-  background-color: #68B0B0;
+  background-color: black;
   height: 5vh;
   color: white;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .App-title {
@@ -22,7 +24,10 @@
 }
 
 .App-intro {
-  font-size: large;
+  margin-top: 3%;
+  font-size: 1.25em;
+  max-width: 90vw;
+  font-family: 'Montserrat', sans-serif;
 }
 
 ul {
@@ -34,24 +39,68 @@ ul {
     min-height: 10vh;
     width: 100vw;
     max-width: 100vw;
-    margin: 0%;
+    margin: 0 auto;
 
 }
 
-li {
-    padding: 4%;
-    margin: 1%;
-    background-color: rgba(0, 0, 0, 0.5);
-    line-height: -moz-block-height;
-    
+
+a:first-child {
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
+
+a:last-child {
+   border-bottom-right-radius: 5px;
+   border-top-right-radius: 5px; 
+}
+
 
 a {
+   line-height: 10vh;
+   padding-left: 4%;
+   padding-right: 4%;
    text-decoration: none;
-    color: white;
+   color: dodgerblue;
+    border: 1px solid;
+    border-color: dodgerblue;
+    background-color: transparent;
+}
+
+.active {
+  color: white;
+  background-color: dodgerblue;
+}
+
+.teams-button {
+    list-style-type: none;
+    border: 0px;
+    font-size: large;
+    margin: 0;
+    padding: 0;
+    color: dodgerblue;
+    font-size: 1.25em;
+}
+
+.teams-body{
+    margin-top: 2%;
+}
+.accordion_parent{
+    font-family: 'Montserrat', sans-serif;
+    max-width: 100vw;
+}
+
+.accordion_item{
+    max-width: 100vw;
+}
+
+.accordion__title{
+    width: 90vw;
+    max-width: 90vw;
+    border: 1px solid;
+    border-color: grey;
 }
 
 
-.active {
-  color: lightblue;
+@-ms-viewport{
+  width: device-width;
 }

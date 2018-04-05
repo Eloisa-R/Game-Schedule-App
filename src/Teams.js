@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
 
+import {
+  NavLink
+} from "react-router-dom";
+
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemTitle,
+    AccordionItemBody,
+} from 'react-accessible-accordion';
+
+import 'react-accessible-accordion/dist/fancy-example.css';
+
 class Teams extends Component {
+    displayTeams() {
+        var team_names = ["Team U1", "Team U2", "Team U3", "Team U4"];
+        var accordion_items = team_names.map((element, index)=>
+            <AccordionItem className="accordion_item" key={ index }><AccordionItemTitle><h3>{element}</h3></AccordionItemTitle><AccordionItemBody><NavLink className="teams-button" to={`/teaminfo/${index}`}><li>General Information</li></NavLink><NavLink className="teams-button" to={`/matchdetails/${index}`}><li>Matches</li></NavLink></AccordionItemBody></AccordionItem>
+        )
+        return <Accordion className="accordion_parent">{accordion_items}</Accordion>
+    }
+    
   render() {
     return (
-      <div>
-        <div><h2>TEAM U1</h2></div>
-        <div><h2>TEAM U2</h2></div>
-        <div><h2>TEAM U3</h2></div>
-        <div><h2>TEAM U4</h2></div>
+      <div className="teams-body">
+        
+        {this.displayTeams()}
       </div>
     );
   }

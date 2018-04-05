@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Calendar extends Component {
   render() {
     return (
-      <div>
+      <div className="calendar-body">
         <p>The calendar will go here</p>
       </div>
     );
