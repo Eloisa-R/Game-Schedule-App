@@ -22,12 +22,12 @@ class Main extends Component {
           <h1 className="App-title">NYSL</h1>
         </header>
         <ul className="App-intro">
-          <NavLink exact to="/"><li className="button">Schedule</li></NavLink>
+          <NavLink to="/schedule"><li className="button">Schedule</li></NavLink>
           <NavLink to="/teams"><li className="button">Teams</li></NavLink>
           <NavLink to="/locations"><li className="button">Locations</li></NavLink>
         </ul>
         <div className="content">
-           <Route exact path="/" component={Calendar}/>
+           <Route path="/schedule" component={Calendar}/>
            <Route path="/teams" component={Teams}/>
            <Route path="/locations" component={Locations}/>
            <Route path="/matchdetails/:number" component={MatchDetails}/>

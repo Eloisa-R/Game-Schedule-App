@@ -1,17 +1,34 @@
 import React, { Component } from 'react';
 
+import {
+  Route,
+  NavLink,
+  HashRouter
+} from "react-router-dom";
+import MatchesMonth from "./MatchesMonth";
+
 class Calendar extends Component {
+
     
-    displayCalendar() {
-        return <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=2&amp;hl=en&amp;bgcolor=%23FFFFFF&amp;src=p3bpcomi895snhkrt9dog1g0so%40group.calendar.google.com&amp;color=%230F4B38&amp;ctz=Europe%2FMadrid" width="80%" height="65%" frameBorder="0" scrolling="no"></iframe>
+    displayMenu() {
+        let month_array = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+        var month_list = month_array.map((item, index) =>
+                                        <NavLink key={index} to={`${this.props.match.url}/matchesmonth/${index}-${item}`} className="month_item"><li>{item}</li></NavLink>)
+        return <ul className="month_menu">{month_list}</ul>
     }
+
   render() {
     return (
+     <HashRouter>
       <div className="calendar-body">
-        {this.displayCalendar()}
+       {this.displayMenu()}
+       <div className="eventsBody">
+         <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/>
+        </div>   
       </div>
+     </HashRouter>
     );
   }
 }
 
-export default  Calendar;
+export default Calendar;

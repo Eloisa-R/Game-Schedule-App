@@ -127,3 +127,17 @@ a {
 @-ms-viewport{
   width: device-width;
 }
+
+.month_menu {
+    justify-content: flex-start;
+    overflow-x: scroll;
+    background-color: transparent;
+}
+
+.month_item {
+    background-color: transparent;
+    color: gray;
+    border: 0px;
+    padding-left: 2%;
+    padding-right: 2%;
+}
