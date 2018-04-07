@@ -141,3 +141,34 @@ a {
     padding-left: 2%;
     padding-right: 2%;
 }
+
+.month_item.active {
+    font-weight: bold;
+    color: black;
+}
+
+.schedule-team-header {
+    border: 1px solid;
+    border-color: lightgray;
+    background-color: lightgray;
+    margin: 0px;
+}
+
+.schedule-team-body {
+    background-color: white;
+    border-color: lightgray;
+}
+
+
+.schedule-team-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-container{
+    display: flex;
+    justify-content: center;
+}
+.schedule-team-container{
+    max-width: 90vw;
+}
