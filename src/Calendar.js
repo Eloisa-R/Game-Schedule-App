@@ -27,7 +27,7 @@ class Calendar extends Component {
       <div className="calendar-body">
        {this.displayMenu()}
        <div className="eventsBody">
-         <div id="click-on-month">Click on a month to load the schedule</div>
+         <div id="click-on-month"><h3>Click on a month to load the schedule</h3></div>
          <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/>
         </div>   
       </div>

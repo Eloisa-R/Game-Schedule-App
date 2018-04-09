@@ -3,6 +3,7 @@
 
 * {
     font-family: 'Montserrat', sans-serif;
+    list-style: none;
 }
 
 .App {
@@ -18,13 +19,16 @@
 .App-header {
   width: 100vw;
   display: flex;
-  background-color: black;
-  height: 5vh;
+  justify-content: flex-end;
+  background-color: #F68321;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  height: 10vh;
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
 .App-title {
+  padding-left: 25%;
   font-size: 1.25em;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -40,6 +44,7 @@
     height: 100vh;
 }
 
+/*
 ul {
     list-style-type: none;
     display: flex;
@@ -63,6 +68,8 @@ a:last-child {
    border-bottom-right-radius: 5px;
    border-top-right-radius: 5px; 
 }
+*/
+/*
 
 @media (min-width: 320px) and (max-width: 339px) {
     a {
@@ -75,7 +82,9 @@ a:last-child {
     a {padding-left: 4%;
         padding-right: 4%;}
 }
+*/
 
+/*
 a {
     flex-grow: 1;
     max-width: 100%;
@@ -86,6 +95,7 @@ a {
     border-color: dodgerblue;
     background-color: transparent;
 }
+*/
 
 .active {
   color: white;
@@ -114,14 +124,24 @@ a {
 }
 
 .accordion_item{
-    max-width: 100vw;
+    max-width: 100vw; 
 }
 
-.accordion__title{
-    width: 90vw;
+.accordion_title{
+  width: 90vw;
     max-width: 90vw;
-    border: 1px solid;
-    border-color: lightgrey;
+    padding: 5%;
+    background-color: rgba(255,255,255, 0.6);  
+}
+
+.accordion_body{
+    padding: 10%;
+    background-color: rgba(255,255,255, 0.3);
+}
+
+.accordion_body a {
+    text-decoration: none;
+    padding: 2%;
 }
 
 @-ms-viewport{
@@ -129,9 +149,12 @@ a {
 }
 
 .month_menu {
+    display: flex;
+    padding: 0;
     justify-content: flex-start;
     overflow-x: scroll;
     background-color: transparent;
+    z-index: 200;
 }
 
 .month_item {
@@ -148,15 +171,12 @@ a {
 }
 
 .schedule-team-header {
-    border: 1px solid;
-    border-color: lightgray;
-    background-color: lightgray;
+    background-color: rgba(255,255,255, 0.6);
     margin: 0px;
 }
 
 .schedule-team-body {
-    background-color: white;
-    border-color: lightgray;
+    background-color: rgba(255,255,255, 0.3);
 }
 
 
@@ -171,4 +191,120 @@ a {
 }
 .schedule-team-container{
     max-width: 90vw;
+}
+
+
+.pie {
+  display: none;
+  position: fixed;
+  top: -5em;
+  left: -10em;
+  padding: 0;
+  width: 20em; height: 20em;
+  border-radius: 50%;
+  list-style: none;
+  overflow: hidden;
+  transform: translate(-50%, 0);
+  transform: rotate(120deg) scaleX(-1);
+  z-index: 30;
+  background: rgba(255, 195, 109, 0.5);
+}
+.slice {
+  overflow: hidden;
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%; height: 50%;
+  transform-origin: 0% 100%; 
+}
+.slice:first-child {
+  transform: rotate(-90deg) skewY(-22.5deg);
+}
+
+.slice:last-child {
+  transform: rotate(25deg) skewY(-22.5deg);
+}
+
+.slice:nth-child(2){
+  transform: rotate(-25deg);
+}
+
+.slice-contents {
+  position: absolute;
+  left: -100%;
+  width: 200%; height: 200%;
+  border-radius: 50%;
+
+
+}
+.slice:first-child .slice-contents {
+  transform: skewY(22.5deg); /* unskew slice contents */
+}
+
+.slice:last-child .slice-contents {
+  transform: skewY(22.5deg); /* unskew slice contents */
+}
+
+.schedule-icon{
+    transform: rotate(-160deg);
+    position: absolute;
+    height: 15%;
+    width: 15%;
+    top: 10%;
+    right: 15%;
+}
+
+.teams-icon{
+    transform: rotate(182deg);
+    position: absolute;
+    height: 15%;
+    width: 15%;
+    top: 3%;
+    right: 25%;
+    z-index: 100;
+}
+
+.chat-icon{
+    transform: rotate(20deg);
+    position: absolute;
+    height: 15%;
+    width: 15%;
+    top: 5%;
+    right: 20%;
+}
+
+.home-icon {
+   height: 100%;
+   width: 100%;
+   color: white;
+}
+
+.home {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 4em; height: 4em;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.cn-overlay{
+  width:100%;
+  height:100%;
+  background-color: rgba(0,0,0,0.6);
+  position:fixed;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  opacity:0;
+  transition: all .3s ease;
+  z-index:2;
+  pointer-events:none;
+}
+
+/* Class added to the overlay via JavaScript to show it when navigation is open */
+.cn-overlay.on-overlay{
+  pointer-events:auto;
+  opacity:1;
 }

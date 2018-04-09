@@ -3,14 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.5",
+    "@fortawesome/react-fontawesome": "0.0.18",
+    "firebase": "^4.12.1",
     "moment": "^2.22.0",
+    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-accessible-accordion": "^2.2.1",
     "react-big-calendar": "^0.19.0",
     "react-dom": "^16.3.1",
     "react-event-calendar": "^0.3.0",
+    "react-is": "^16.3.1",
+    "react-pie-menu": "^0.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "1.1.4"
+    "react-scripts": "1.1.4",
+    "recompose": "^0.26.0",
+    "styled-components": "^3.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
