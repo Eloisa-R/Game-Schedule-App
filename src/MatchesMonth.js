@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import {
+  NavLink
+} from "react-router-dom";
+
 class MatchesMonth extends Component {
     constructor() {
         super();
@@ -19,7 +23,7 @@ class MatchesMonth extends Component {
         return response.json().then((json) =>{
             this.matches_of_the_month = json.months[index_clicked][item_clicked].matches
             this.matches_list = this.matches_of_the_month.map((element,index)=>
-                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header">Teams: {element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><p>Location: {element.location}</p></div></div>)
+                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header">Teams: {element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><p>Location: <NavLink to={`/locations/${element.location}`}>{element.location}</NavLink></p></div></div>)
             let final_result = <div>{this.matches_list}</div>
             this.setState({events:final_result})
         })

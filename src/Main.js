@@ -50,7 +50,7 @@ class Main extends Component {
            <Route path="/schedule" component={Calendar}/>
            <Route path="/teams" component={Teams}/>
            <Route path="/chat" component={Chat}/>
-           <Route path="/locations" component={Locations}/>
+           <Route path="/locations/:id" component={Locations}/>
            <Route path="/matchdetails/:number" component={MatchDetails}/>
            <Route path="/teaminfo/:number" component={TeamInfo}/>
         </div>
