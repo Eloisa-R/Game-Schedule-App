@@ -12,6 +12,7 @@ import MatchDetails from "./MatchDetails";
 import TeamInfo from "./TeamInfo";
 import Chat from "./Chat";
 import Welcome from "./Welcome";
+import addMessage from './addMessage';
 
 class Main extends Component {
     
@@ -53,6 +54,7 @@ class Main extends Component {
            <Route path="/locations/:id" component={Locations}/>
            <Route path="/matchdetails/:number" component={MatchDetails}/>
            <Route path="/teaminfo/:number" component={TeamInfo}/>
+           <Route path="/chats/:id" component={addMessage}/>
         </div>
       </div>
      </HashRouter>

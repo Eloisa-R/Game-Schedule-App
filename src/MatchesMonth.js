@@ -24,7 +24,7 @@ class MatchesMonth extends Component {
             this.matches_of_the_month = json.months[index_clicked][item_clicked].matches
             this.matches_list = this.matches_of_the_month.map((element,index)=>
                                     <div key={index} className="schedule-team-container"><h3 className="schedule-team-header">Teams: {element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><p>Location: <NavLink to={`/locations/${element.location}`}>{element.location}</NavLink></p></div></div>)
-            let final_result = <div>{this.matches_list}</div>
+            let final_result = <div className="global_container">{this.matches_list}</div>
             this.setState({events:final_result})
         })
     })
