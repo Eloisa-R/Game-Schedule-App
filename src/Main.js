@@ -36,7 +36,6 @@ class Main extends Component {
      <HashRouter>
       <div className="App">
         <header className="App-header">
-  {/*<img src={require("./images/nysl_logo.png")} className="App-logo" alt="logo" />*/}
           <h1 className="App-title">Northside Youth Soccer League</h1>
         </header>
         <div className="home"><img onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
@@ -50,11 +49,11 @@ class Main extends Component {
            <Route exact path="/" component={Welcome}/>                                        
            <Route path="/schedule" component={Calendar}/>
            <Route path="/teams" component={Teams}/>
-           <Route path="/chat" component={Chat}/>
+           <Route exact path="/chat" component={Chat}/>
            <Route path="/locations/:id" component={Locations}/>
            <Route path="/matchdetails/:number" component={MatchDetails}/>
            <Route path="/teaminfo/:number" component={TeamInfo}/>
-           <Route path="/chats/:id" component={addMessage}/>
+           <Route path="/chat/:id/:type" component={addMessage}/>
         </div>
       </div>
      </HashRouter>

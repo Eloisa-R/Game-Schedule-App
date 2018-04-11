@@ -42,14 +42,15 @@ class Chat extends Component {
   };
     
  showChats(){
-     return firebase.database().ref('/chats').once('value').then((chat)=>{
+     firebase.database().ref('/chats').once('value').then((chat)=>{
          let chatsObject = chat.val()
          let temp_chats = [];
          for (let key in chatsObject){
              temp_chats.push([chatsObject[key].title, chatsObject[key].lastMessage, key])
          }
          this.chats = temp_chats
-         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index}><NavLink to={`/chats/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">Last post: {element[1]}</div></div>
+         
+         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index}><NavLink to={`chat/${element[0]}/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">Last post: {element[1]}</div></div>
         )})
          
      })
@@ -62,11 +63,8 @@ class Chat extends Component {
     } 
   })
   
+  this.showChats();  
   };
-    
- componentDidUpdate(){
-   this.showChats();  
-}
     
   render() {
     return (
