@@ -310,6 +310,7 @@ input[type=button] {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: rgba(255, 195, 109, 0.5);
 }
 
 .chat-header{
@@ -334,6 +335,7 @@ input[type=button] {
 
 .chat-submit{
     padding: 5%;
+    padding-top: 2%;
     width: 100vw;
     background-color: rgba(255, 195, 109, 0.5); 
 }
@@ -390,4 +392,12 @@ label{
     justify-content: space-around;
     width: 100vw;
     background-color: rgba(255, 195, 109, 0.5);
+}
+
+@media screen and (min-height: 370px) and (max-height: 600px) {
+    .chat-messages { height: 65vh;}
+}
+
+@media screen and (min-height: 300px) and (max-height: 370px) {
+    .chat-messages { height: 50vh;}
 }
