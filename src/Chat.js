@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from './fire';
-import chatModel from './models/chat';
-import messageModel from './models/message';
 
 import {
   NavLink
@@ -46,11 +44,11 @@ class Chat extends Component {
          let chatsObject = chat.val()
          let temp_chats = [];
          for (let key in chatsObject){
-             temp_chats.push([chatsObject[key].title, chatsObject[key].lastMessage, key])
+             temp_chats.push([chatsObject[key].title, chatsObject[key].description, key])
          }
          this.chats = temp_chats
          
-         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index}><NavLink to={`chat/${element[0]}/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">Last post: {element[1]}</div></div>
+         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index}><NavLink to={`chat/${element[0]}/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">{element[1]}</div></div>
         )})
          
      })
@@ -70,7 +68,7 @@ class Chat extends Component {
     return (
       <div className="chat-body">      
         {this.state.user ?
-        <div><div className="chat-buttons"><input type="button" value="+ Start New Chat"/><input type="button" onClick={this.signOut} value="Sign Out"/></div>
+        <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
         <div><h3>List of Chats:</h3>
         {this.state.chatsDisplay}</div></div>
         :

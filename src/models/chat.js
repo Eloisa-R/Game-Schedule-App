@@ -1,6 +1,6 @@
-export default (id, title, lastMessage, timestamp) => ({
+export default (id, title, description, timestamp) => ({
   id: id,
   title: title,
-  lastMessage: lastMessage,
+  description: description,
   timestamp: timestamp
 })
