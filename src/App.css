@@ -383,3 +383,11 @@ label{
     border: none;
     background-color: rgba(255, 195, 109, 0.5);
 }
+
+.startChatHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100vw;
+    background-color: rgba(255, 195, 109, 0.5);
+}

@@ -25,7 +25,7 @@ class newChat extends Component {
   render() {
     return (
       <div className="new_chat-body">
-        <h3>Start new chat</h3>
+        <div className="startChatHeader"><a href="#/chat">Back</a><h3>Start new chat</h3></div>
         <div className="input_body">
         <label htmlFor="chatTitle">Enter a title for the chat:</label><input type="text" id="chatTitle"/>
         <label htmlFor="chatDesc">Enter a description for the chat:</label><input type="text" id="chatDesc"/>
