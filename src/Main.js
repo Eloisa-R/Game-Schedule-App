@@ -3,7 +3,8 @@ import './App.css';
 import {
   Route,
   NavLink,
-  HashRouter
+  HashRouter,
+  Redirect
 } from "react-router-dom";
 import Calendar from "./Calendar";
 import Teams from "./Teams";
@@ -47,7 +48,7 @@ class Main extends Component {
         </ul>
         <div id="cn-overlay" className="cn-overlay"></div>
         <div className="content">
-           <Route exact path="/" component={Welcome}/>                                        
+           <Redirect from="/" to="/schedule"/>                                        
            <Route path="/schedule" component={Calendar}/>
            <Route path="/teams" component={Teams}/>
            <Route exact path="/chat" component={Chat}/>

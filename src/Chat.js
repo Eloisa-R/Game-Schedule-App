@@ -69,7 +69,7 @@ class Chat extends Component {
       <div className="chat-body">      
         {this.state.user ?
         <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
-        <div><h3>List of Chats:</h3>
+        <div className="chats-content"><h3>List of Chats:</h3>
         {this.state.chatsDisplay}</div></div>
         :
         <div><h4>Please sign in to use the chat!</h4>
