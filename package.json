@@ -5,6 +5,7 @@
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.5",
     "@fortawesome/react-fontawesome": "0.0.18",
+    "@pearson-components/coach-mark": "^0.5.0",
     "firebase": "^4.12.1",
     "moment": "^2.22.0",
     "prop-types": "^15.6.1",

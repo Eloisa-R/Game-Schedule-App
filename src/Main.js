@@ -6,17 +6,21 @@ import {
   HashRouter,
   Redirect
 } from "react-router-dom";
+import CoachMark from "@pearson-components/coach-mark";
 import Calendar from "./Calendar";
 import Teams from "./Teams";
 import Locations from "./Locations";
 import MatchDetails from "./MatchDetails";
 import TeamInfo from "./TeamInfo";
 import Chat from "./Chat";
-import Welcome from "./Welcome";
 import addMessage from './addMessage';
 import newChat from './NewChat';
 
 class Main extends Component {
+    constructor(){
+      super();
+      this.showFirst = this.showFirst.bind(this)
+    }
     
     showMenu() {
         if (document.getElementsByClassName("pie")[0].style.display === "" || document.getElementsByClassName("pie")[0].style.display === "none") {
@@ -32,6 +36,21 @@ class Main extends Component {
         document.getElementsByClassName("pie")[0].style.display = "none";
         document.getElementById("cn-overlay").classList.remove("on-overlay");
     }
+
+    showFirst = () => {
+      new CoachMark({
+        elementId: 'homeButton',
+        opts: {
+          title: 'Navigation tip!',
+          text: 'Click on the icon to display the menu',
+          gotIt: true
+        }
+      });
+    };
+
+    componentDidMount(){
+      this.showFirst()
+    }
     
   render() {
     return (
@@ -40,7 +59,7 @@ class Main extends Component {
         <header className="App-header">
           <h1 className="App-title">Northside Youth Soccer League</h1>
         </header>
-        <div className="home"><img onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
+        <div className="home"><img id="homeButton" onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
         <ul className='pie'>
           <li className='slice'><div className='slice-contents' onClick={this.hideMenu}><NavLink to="/schedule"><img className="schedule-icon" src={require("./images/schedule.png")} alt=""/></NavLink></div></li>
            <li className='slice'><div className='slice-contents' onClick={this.hideMenu}><NavLink to="/teams"><img className="teams-icon" src={require("./images/teams.svg")} alt=""/></NavLink></div></li>

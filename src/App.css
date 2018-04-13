@@ -47,11 +47,6 @@
     overflow: scroll;
 }
 
-.active {
-  color: white;
-  background-color: dodgerblue;
-}
-
 .teams-button {
     list-style-type: none;
     border: 0px;
@@ -100,23 +95,6 @@
 
 @-ms-viewport{
   width: device-width;
-}
-
-.month_menu {
-    display: flex;
-    padding: 0;
-    justify-content: flex-start;
-    overflow-x: scroll;
-    background-color: transparent;
-    z-index: 200;
-}
-
-.month_item {
-    background-color: transparent;
-    color: gray;
-    border: 0px;
-    padding-left: 2%;
-    padding-right: 2%;
 }
 
 .month_item.active {
@@ -403,4 +381,41 @@ label{
 
 .chats-content{
     overflow: scroll;
+}
+
+.o-coach-mark__close-icon{
+    height: 0px;
+    width: 0px;
+}
+
+.o-coach-mark__content.o-coach-mark--bottom-left{
+    background-color: lightgray;
+}
+
+.o-coach-mark--bottom-left:before, .o-coach-mark--bottom:before, .o-coach-mark--top-left:before, .o-coach-mark--top:before {
+    background-color: transparent;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.month_item{
+    padding: 2%;
+}
+
+.month_menu{
+    padding: 0px;
+}
+
+.active{
+    font-weight: bold;
+}
+
+#menuMonths{
+    display: flex;
+    padding-left: 2%;
+    padding-right: 2%;
 }
