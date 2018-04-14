@@ -7,7 +7,8 @@ import {
   Route,
   NavLink,
   HashRouter,
-  Redirect
+  Redirect,
+  Switch
 } from "react-router-dom";
 import MatchesMonth from "./MatchesMonth";
 
@@ -111,11 +112,15 @@ class Calendar extends Component {
        {this.displayMenu()}
        <div className="eventsBody">
        {this.state.clicked ?
-         <div><Redirect to={`${this.props.match.path}/matchesmonth/${this.state.clicked_month}`}/>
-         <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/></div>
+        <div>
+         <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/>
+         <Redirect to={`${this.props.match.path}/matchesmonth/${this.state.clicked_month}`}/>
+        </div>
          :
-         <div><Redirect to={`${this.props.match.path}/matchesmonth/${this.state.current_month}`}/>
-         <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/></div>
+         <Switch>
+         <Route path={`${this.props.match.path}/matchesmonth/:id`} component={MatchesMonth}/>
+         <Redirect to={`${this.props.match.path}/matchesmonth/${this.state.current_month}`}/>
+        </Switch>
        }
          </div>   
       </div>

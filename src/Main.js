@@ -4,12 +4,12 @@ import {
   Route,
   NavLink,
   HashRouter,
-  Redirect
+  Redirect,
+  Switch
 } from "react-router-dom";
 import CoachMark from "@pearson-components/coach-mark";
 import Calendar from "./Calendar";
 import Teams from "./Teams";
-import Locations from "./Locations";
 import MatchDetails from "./MatchDetails";
 import TeamInfo from "./TeamInfo";
 import Chat from "./Chat";
@@ -57,7 +57,7 @@ class Main extends Component {
      <HashRouter>
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Northside Youth Soccer League</h1>
+          <h1 className="App-title">NYSL</h1>
         </header>
         <div className="home"><img id="homeButton" onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
         <ul className='pie'>
@@ -67,15 +67,16 @@ class Main extends Component {
         </ul>
         <div id="cn-overlay" className="cn-overlay"></div>
         <div className="content">
-           <Redirect from="/" to="/schedule"/>                                        
+         <Switch>                                      
            <Route path="/schedule" component={Calendar}/>
            <Route path="/teams" component={Teams}/>
            <Route exact path="/chat" component={Chat}/>
-           <Route path="/locations/:id" component={Locations}/>
-           <Route path="/matchdetails/:number" component={MatchDetails}/>
-           <Route path="/teaminfo/:number" component={TeamInfo}/>
+           <Route path="/matchdetails/:id" component={MatchDetails}/>
+           <Route path="/teaminfo/:id" component={TeamInfo}/>
            <Route path="/chat/:id/:type" component={addMessage}/>
            <Route path="/chat/newchat" component={newChat}/>
+           <Redirect from="/" to="/schedule"/>  
+        </Switch>
         </div>
       </div>
      </HashRouter>

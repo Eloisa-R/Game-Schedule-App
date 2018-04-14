@@ -19,16 +19,15 @@
 .App-header {
   width: 100vw;
   display: flex;
-  justify-content: flex-end;
-  background-color: #F68321;
-  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+  justify-content: space-around;
+  background-color: #4d75c4;
+  box-shadow: 1px 4px 4px rgba(0, 0, 0, .5);
   height: 10vh;
   color: white;
   font-family: 'Montserrat', sans-serif;
 }
 
 .App-title {
-  padding-left: 25%;
   font-size: 1.25em;
   font-family: 'Josefin Sans', sans-serif;
 }
@@ -75,12 +74,12 @@
 }
 
 .accordion_title{
-  width: 90vw;
+    width: 90vw;
     max-width: 90vw;
-    padding: 0;
-    background-color: rgba(255, 195, 109, 0.5);
+    padding: 2%;
+    background-color: rgba(172, 197, 245, 0.6);
     border: 1px solid;
-    border-color: rgba(255,255,255, 0.3);
+    border-color: rgb(150, 183, 243);
 }
 
 .accordion_body{
@@ -103,7 +102,9 @@
 }
 
 .schedule-team-header {
-    background-color: rgba(255, 195, 109, 0.5);
+    background-color: rgba(172, 197, 245, 0.6);
+    border: 1px solid;
+    border-color: rgb(150, 183, 243);
     margin: 0px;
     padding: 2%;
 }
@@ -142,7 +143,7 @@
   transform: translate(-50%, 0);
   transform: rotate(120deg) scaleX(-1);
   z-index: 30;
-  background: rgba(255, 195, 109, 0.5);
+  background: rgba(202, 218, 250, 0.5);
 }
 .slice {
   overflow: hidden;
@@ -214,7 +215,7 @@
 }
 
 .home {
-  position: fixed;
+  position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
@@ -246,7 +247,7 @@
 
 .chat-title{
     text-align: left;
-    background-color: rgba(255, 195, 109, 0.5);
+    background-color: rgba(165, 189, 237, 0.5);
     padding: 3%;
 }
 
@@ -259,7 +260,7 @@ input[type=button] {
     padding: 2%;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .5);
     border: none;
-    background-color: rgba(255, 195, 109, 0.5);
+    background-color: rgba(165, 189, 237, 0.5);
     border-radius: 2px;
     font-size: 1em;
 }
@@ -287,14 +288,14 @@ input[type=button] {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 195, 109, 0.5);
+    background-color: rgb(202, 218, 250);
 }
 
 .chat-header{
   display: flex;
   justify-content:space-around;
   width: 100vw;
-  background-color: rgba(255, 195, 109, 0.5);  
+  background-color: rgb(165, 189, 237);  
 }
 
 .chat-header > a {
@@ -314,14 +315,14 @@ input[type=button] {
     padding: 5%;
     padding-top: 2%;
     width: 100vw;
-    background-color: rgba(255, 195, 109, 0.5); 
+    background-color: rgb(165, 189, 237); 
 }
 
 .message{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgba(255, 195, 109, 0.3);
+    background-color: rgb(202, 218, 250);
     max-width: 90vw;
     height: fit-content;
     margin: 1%;
@@ -408,6 +409,10 @@ label{
 
 .month_menu{
     padding: 0px;
+    display: flex;
+    margin-bottom: 0px;
+    justify-content: center;
+    background-color: rgba(165, 189, 237, 0.5);
 }
 
 .active{
@@ -418,4 +423,8 @@ label{
     display: flex;
     padding-left: 2%;
     padding-right: 2%;
+}
+
+.eventsBody{
+    background-color: rgb(202, 218, 250);
 }
