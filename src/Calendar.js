@@ -27,6 +27,7 @@ class Calendar extends Component {
       this.getCurrentMonth = this.getCurrentMonth.bind(this)
       this.hideDiv = this.hideDiv.bind(this)
       this.displayMenu = this.displayMenu.bind(this)
+      this.showCurrentMonthActive = this.showCurrentMonthActive.bind(this)
     }
 
     getCurrentMonth(){
@@ -40,6 +41,14 @@ class Calendar extends Component {
       let third_group = month_list.slice(10,12)
       this.setState({first_group_menu: first_group, second_group_menu: second_group, third_group_menu: third_group, current_month: date.getMonth()})
     }  
+    
+    showCurrentMonthActive(currentMonth) {
+      let elem_with_active = document.getElementsByClassName("active")
+      for (let i = 0; i < elem_with_active.length; i++){
+        elem_with_active[i].classList.remove("active")
+      }
+      document.getElementById(currentMonth).classList.add("active")
+    }
     
     hideDiv(index) {
       this.setState({clicked: true, clicked_month: index})
@@ -103,6 +112,15 @@ class Calendar extends Component {
 
     componentDidMount() {
       this.getCurrentMonth()
+    }
+
+    componentDidUpdate(){
+      if (this.state.clicked == false) {
+        this.showCurrentMonthActive(this.state.current_month)
+      } else {
+        this.showCurrentMonthActive(this.state.clicked_month)
+      }
+      
     }
 
   render() {

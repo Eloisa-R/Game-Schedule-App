@@ -37,7 +37,7 @@ class MatchesMonth extends Component {
             let month_key = Object.keys(json.months[index_clicked])[0]
             this.matches_of_the_month = json.months[index_clicked][month_key].matches
             this.matches_list = this.matches_of_the_month.map((element,index)=>
-                    <div key={index} className="schedule-team-container"><h4 className="schedule-team-header"><div className="images-team"><img src={require(`./images/${element.logos[0]}`)}/><img src={require(`./images/${element.logos[1]}`)}/></div>{element.teams}</h4></div>)
+                    <div key={index} className="schedule-team-container"><h4 className="schedule-team-header"><div className="images-team"><img src={require(`./images/${element.logos[0]}`)}/><img src={require(`./images/${element.logos[1]}`)}/></div>{element.teams}</h4><div className="location-div"><img src={require("./images/locations.png")}/>Location: <NavLink to={`${this.props.match.url}/locations/${element.location}`} onClick={this.itemClicked}>{element.location}</NavLink></div></div>)
             let final_result = <div className="global_container">{this.matches_list}</div>
             this.setState({events:final_result})
         })

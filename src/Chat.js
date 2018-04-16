@@ -48,7 +48,7 @@ class Chat extends Component {
          }
          this.chats = temp_chats
          
-         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index}><NavLink to={`chat/${element[0]}/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">{element[1]}</div></div>
+         this.setState({chatsDisplay: this.chats.map((element, index) => <div key={index} className="chat-element"><NavLink to={`chat/${element[0]}/${element[2]}`}><h4 className="chat-title">{element[0]}</h4></NavLink><div className="chat-info">{element[1]}</div></div>
         )})
          
      })
@@ -69,8 +69,8 @@ class Chat extends Component {
       <div className="chat-body">      
         {this.state.user ?
         <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
-        <div className="chats-content"><h3>List of Chats:</h3>
-        {this.state.chatsDisplay}</div></div>
+        <div className="chats-content"><div className="chats-content-child"><h3>List of Chats:</h3>
+        {this.state.chatsDisplay}</div></div></div>
         :
         <div><h4>Please sign in to use the chat!</h4>
         <input type="button" onClick={this.signIn} value="Sign in with Google"/></div>
