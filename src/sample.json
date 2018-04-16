@@ -512,7 +512,7 @@
         }
     ],
     "teams" : [{"name": "CHICAGO RED STARS", "head_coach": "RORY DAMES", "home_field": "TOYOTA PARK", "logo": "crs.png"},
-        {"name": "NORTH CAROLINA COURAGE", "head_coach": "PAUL RILEY", "home_field": "SAHLEN’S STADIUM AT WAKEMED SOCCER PARK", "logo": "ncc.png"},
+        {"name": "NORTH CAROLINA COURAGE", "head_coach": "PAUL RILEY", "home_field": "SAHLEN’S STADIUM AT WAKEMED SOCCER PARK", "logo": "nrc.png"},
         {"name": "PORTLAND THORNS FC", "head_coach": "MARK PARSONS", "home_field": "PROVIDENCE PARK", "logo": "pt.png"},
         {"name": "SKY BLUE FC", "head_coach": "DENISE REDDY", "home_field": "YURCAK FIELD", "logo": "sb.png"},
         {"name": "HOUSTON DASH", "head_coach": "VERA PAUW", "home_field": "BBVA COMPASS STADIUM", "logo": "hd.png"},

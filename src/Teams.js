@@ -14,19 +14,33 @@ import {
 import 'react-accessible-accordion/dist/fancy-example.css';
 
 class Teams extends Component {
-    displayTeams() {
-        var team_names = ["CHICAGO RED STARS", "NORTH CAROLINA COURAGE", "PORTLAND THORNS FC", "SKY BLUE FC", "HOUSTON DASH","ORLANDO PRIDE","SEATTLE REIGN FC","UTAH ROYALS FC","WASHINGTON SPIRIT"];
-        var accordion_items = team_names.map((element, index)=>
-            <AccordionItem className="accordion_item" key={ index }><AccordionItemTitle className="accordion_title"><h3>{element}</h3></AccordionItemTitle><AccordionItemBody className="accordion_body"><NavLink className="teams-button" to={`/teaminfo/${element}`}><li>General Information</li></NavLink><NavLink className="teams-button" to={`/matchdetails/${element}`}><li>Matches</li></NavLink></AccordionItemBody></AccordionItem>
-        )
-        return <Accordion className="accordion_parent">{accordion_items}</Accordion>
+  constructor(){
+    super();
+    this.state={
+      team_items: "",
     }
+    this.displayTeams = this.displayTeams.bind(this)
+  }
+    displayTeams() {
+        fetch("https://api.myjson.com/bins/13kt1r").then((response)=>{
+          return response.json().then((json) =>{
+            let accordion_items = json.teams.map((element, index)=>
+            <AccordionItem className="accordion_item" key={ index }><AccordionItemTitle className="accordion_title"><img src={require(`./images/${element.logo}`)}/><h3>{element.name}</h3></AccordionItemTitle><AccordionItemBody className="accordion_body"><NavLink className="teams-button" to={`/teaminfo/${element}`}><li>General Information</li></NavLink><NavLink className="teams-button" to={`/matchdetails/${element}`}><li>Matches</li></NavLink></AccordionItemBody></AccordionItem>
+        )
+        let  accordion_list = <Accordion className="accordion_parent">{accordion_items}</Accordion>
+        this.setState({team_items: accordion_list})
+          })}) 
+    }
+
+  componentDidMount(){
+    this.displayTeams()
+  }
     
   render() {
     return (
       <div className="teams-body">
         
-        {this.displayTeams()}
+        {this.state.team_items}
       </div>
     );
   }

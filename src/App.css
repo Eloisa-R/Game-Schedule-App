@@ -80,6 +80,7 @@
     background-color: rgba(172, 197, 245, 0.6);
     border: 1px solid;
     border-color: rgb(150, 183, 243);
+    display: flex;
 }
 
 .accordion_body{
@@ -107,6 +108,8 @@
     border-color: rgb(150, 183, 243);
     margin: 0px;
     padding: 2%;
+    display: flex;
+    text-align: left;
 }
 
 .schedule-team-body {
@@ -427,4 +430,21 @@ label{
 
 .eventsBody{
     background-color: rgb(202, 218, 250);
+}
+
+.images-team > img{
+    width: 50%;
+    height: 50%;
+}
+
+.images-team {
+    display: flex;
+    flex-direction: column;
+    min-width: 35%;
+    max-width: 35%;
+}
+
+.accordion_title > img {
+    width: 40%;
+    height: 40%;
 }
