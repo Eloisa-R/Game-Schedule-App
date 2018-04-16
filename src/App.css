@@ -89,7 +89,8 @@
 
 .accordion_body{
     padding: 5%;
-    background-color: rgba(255,255,255, 0.3);
+    background-color: rgba(255,255,255, 0.4);
+    width: 90vw;
 }
 
 .accordion_body a {
@@ -481,4 +482,32 @@ label{
 .locations-body-container{
     display: flex;
     justify-content: center;
+}
+
+.back-button-matches{
+    padding: 2%;
+    text-align: left;
+    font-size: medium;
+    background-color: rgba(165, 189, 237, 0.6);
+}
+
+.body-and-buttons-info{
+    margin-top: 5%;
+    width: 90vw;
+    background-color: rgb(202, 218, 250);
+}
+
+.team_info-body{
+    display: flex;
+    justify-content: center;
+}
+
+.team-info-container{
+    font-size: large;
+}
+
+.football_field{
+    width: 70%;
+    height: 70%;
+    padding: 3%;
 }

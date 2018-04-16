@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   NavLink,
@@ -21,7 +22,9 @@ class MatchDetails extends Component {
     }
     this.itemClicked = this.itemClicked.bind(this)
     }
-
+    static contextTypes = {
+      router: PropTypes.object
+    }
     
 
   itemClicked(){
@@ -41,7 +44,7 @@ class MatchDetails extends Component {
             let matches_to_show = []
             temp_matches_list_for_team.forEach((month) => {
                 matches_to_show.push(month.map((element,index)=>
-                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header">Teams: {element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><p>Location: <NavLink to={`${this.props.match.url}/locations/${element.location}`} onClick={this.itemClicked}>{element.location}</NavLink></p></div></div>))})
+                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header"><div className="images-team"><img src={require(`./images/${element.logos[0]}`)}/><img src={require(`./images/${element.logos[1]}`)}/></div>{element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><div className="location-div"><img src={require("./images/locations.png")}/>Location: <NavLink to={`${this.props.match.url}/locations/${element.location}`} onClick={this.itemClicked}>{element.location}</NavLink></div></div></div>))})
  
             let final_result = <div>{matches_to_show}</div>
                 
@@ -59,6 +62,7 @@ class MatchDetails extends Component {
         <div><Route path={`${this.props.match.path}/locations/:id`} component={Locations}/></div>
         :
       <div className="matches-body">
+      <div className="back-button-matches"><a className="back-button" onClick={this.context.router.history.goBack} >Back</a></div>
         {this.state.events}
       </div>
         }
