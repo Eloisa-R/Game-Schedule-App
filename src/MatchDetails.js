@@ -63,7 +63,13 @@ class MatchDetails extends Component {
         :
       <div className="matches-body">
       <div className="back-button-matches"><a className="back-button" onClick={this.context.router.history.goBack} >Back</a></div>
+        {this.state.events != "" ?
+        <React.Fragment>
         {this.state.events}
+        </React.Fragment>
+        :
+        <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+        }
       </div>
         }
         </div>

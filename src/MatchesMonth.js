@@ -58,8 +58,16 @@ class MatchesMonth extends Component {
         <div><Route path={`${this.props.match.path}/locations/:id`} component={Locations}/></div>
         :
         <div>
-        <div><p>Schedule for {this.state.month_name}</p></div>
-        <div className="schedule-container">{this.state.events}</div>
+          {this.state.events != "" ?
+           <React.Fragment>
+            <div><p>Schedule for {this.state.month_name}</p></div>
+            <div className="schedule-container">{this.state.events}</div>
+            </React.Fragment>
+            :
+            <React.Fragment>
+            <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+            </React.Fragment>
+            }
         </div>
         }
         </div>

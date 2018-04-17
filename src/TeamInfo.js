@@ -37,8 +37,15 @@ class TeamInfo extends Component {
       <div className="team_info-body">
       <div className="body-and-buttons-info">
       <div className="back-button-matches"><a className="back-button" onClick={this.context.router.history.goBack} >Back</a></div>
+        {this.state.my_team_data != "" ?
+        <React.Fragment>
         {this.state.my_team_data}
+        </React.Fragment>
+        :
+        <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+        }
       </div>
+
       </div>
     );
   }

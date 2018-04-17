@@ -68,9 +68,14 @@ class Chat extends Component {
     return (
       <div className="chat-body">      
         {this.state.user ?
-        <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
-        <div className="chats-content"><div className="chats-content-child"><h3>List of Chats:</h3>
-        {this.state.chatsDisplay}</div></div></div>
+          <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
+          {this.state.chatsDisplay != "" ?
+            <div className="chats-content"><div className="chats-content-child"><h3>List of Chats:</h3>
+            {this.state.chatsDisplay}</div></div>
+          :
+            <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+          }
+          </div>
         :
         <div><h4>Please sign in to use the chat!</h4>
         <input type="button" onClick={this.signIn} value="Sign in with Google"/></div>

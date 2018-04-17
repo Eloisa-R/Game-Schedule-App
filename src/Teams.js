@@ -38,9 +38,14 @@ class Teams extends Component {
     
   render() {
     return (
-      <div className="teams-body">
-        
-        {this.state.team_items}
+      <div>
+        {this.state.team_items != "" ?
+          <div className="teams-body">
+          {this.state.team_items}
+          </div>
+        :
+        <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+        }
       </div>
     );
   }

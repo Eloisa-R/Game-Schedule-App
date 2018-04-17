@@ -50,7 +50,11 @@ class addMessage extends Component {
     return (
       <div className="new_message-body">
         <div className="chat-header"><a href="#/chat">Back</a><h3>{this.state.title}</h3></div>
+        {this.state.messages != "" ?
         <div className="chat-messages">{this.state.messages}</div>
+        :
+        <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+        }
         <div className="chat-submit"><form><input id="chatMessage" type="text"/><input onClick={(e) => this.postMessage(e)} type="submit" value="Send"/></form></div>
       </div>
     );

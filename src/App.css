@@ -511,3 +511,8 @@ label{
     height: 70%;
     padding: 3%;
 }
+
+#loaderGif{
+    width: 50%;
+    height: 50%;
+}
