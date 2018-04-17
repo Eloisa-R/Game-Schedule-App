@@ -297,7 +297,7 @@ input[type=button] {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: rgb(202, 218, 250);
+    background-color: rgb(165, 189, 237);
 }
 
 .chat-header{
@@ -314,8 +314,8 @@ input[type=button] {
 .chat-messages{
     overflow-y: scroll;
     overflow-x: hidden;
-    background-color: rgba(255,255,255, 0.3);
-    height: 73vh;
+    background-color: rgb(202, 218, 250);
+    height: 60vh;
     display: flex;
     flex-direction: column;
 }
@@ -324,14 +324,14 @@ input[type=button] {
     padding: 5%;
     padding-top: 2%;
     width: 100vw;
-    background-color: rgb(165, 189, 237); 
+    background-color: rgba(165, 189, 237, 0.3); 
 }
 
 .message{
     display: flex;
     flex-direction: column;
     border-radius: 5px;
-    background-color: rgb(202, 218, 250);
+    background-color: rgba(225, 225, 225);
     max-width: 90vw;
     height: fit-content;
     margin: 1%;
@@ -525,7 +525,7 @@ label{
 
 .message.user{
   margin-left: 30%;
-  background-color: #B0E1E1;
+  background-color: rgba(111, 189, 189, 0.4);
 }
 
 .author{
@@ -556,4 +556,17 @@ label{
     text-align: left;
     font-weight: bold;
     display: none;
+ }
+
+ #chatMessage{
+     height: 10vh;
+     width: 60vw;
+     border: none;
+ }
+
+ input[type=submit]{
+     background-color: lightgrey;
+     padding: 3%;
+     border: none;
+     margin-left:1%;
  }
