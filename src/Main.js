@@ -20,10 +20,8 @@ import Locations from './Locations';
 class Main extends Component {
     constructor(){
       super();
-      this.showFirst = this.showFirst.bind(this)
-      this.onCloseCoachMark = this.onCloseCoachMark.bind(this)
+      this.shadowCoach = this.shadowCoach.bind(this)
     }
-    
     showMenu() {
         if (document.getElementsByClassName("pie")[0].style.display === "" || document.getElementsByClassName("pie")[0].style.display === "none") {
         document.getElementsByClassName("pie")[0].style.display = "block";
@@ -47,25 +45,26 @@ class Main extends Component {
       })
     }
 
-    showFirst = () => {
-      new CoachMark({
-        elementId: 'homeButton',
-        opts: {
-          title: 'Navigation tip!',
-          text: 'Click on the icon to display the menu',
-          gotIt: true,
-          id: 'my-coach-mark'
-        },
-      });
-    };
-
-    componentDidMount(){
-    if (sessionStorage.getItem('coachClosed') == null){
-      this.showFirst()
-      
+    shadowCoach(){
+      if (document.getElementById("homemade-cm").style.display == "") {
+        document.getElementById("cn-overlay").classList.add("on-overlay")
+      }
     }
-   }
-  
+
+    hideCoach(){
+      document.getElementById("homemade-cm").style.display = "none"
+      document.getElementById("cn-overlay").classList.remove("on-overlay")
+      document.cookie="coachmhidden=true"
+    }
+
+  componentDidMount(){
+    if (!document.cookie.includes("coachmhidden")) {
+      this.shadowCoach()
+    } else {
+      document.getElementById("homemade-cm").style.display = "none"
+    }
+    
+  }
    
     
   render() {
@@ -76,6 +75,7 @@ class Main extends Component {
           <h1 className="App-title">NYSL</h1>
         </header>
         <div className="home"><img id="homeButton" onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
+        <div id="homemade-cm">Click on the logo to see the menu!<div><a onClick={this.hideCoach} id="gotIt">Got it!</a></div></div>
         <ul className='pie'>
           <li className='slice'><div className='slice-contents' onClick={this.hideMenu}><NavLink to="/schedule"><img className="schedule-icon" src={require("./images/schedule.png")} alt=""/></NavLink></div></li>
            <li className='slice'><div className='slice-contents' onClick={this.hideMenu}><NavLink to="/teams"><img className="teams-icon" src={require("./images/teams.svg")} alt=""/></NavLink></div></li>
