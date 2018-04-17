@@ -527,3 +527,33 @@ label{
   margin-left: 30%;
   background-color: #B0E1E1;
 }
+
+.author{
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+#errorNewChat{
+    color: red;
+    text-align: left;
+    font-weight: bold;
+    display: none;
+}
+
+.chat-header + #loaderGif{
+    width: 25%;
+    height: 25%;
+    margin-left: 40%;
+ }
+
+ .comp{
+     color: red;
+ }
+
+ #errorNoQ{
+    color: red;
+    text-align: left;
+    font-weight: bold;
+    display: none;
+ }

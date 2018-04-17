@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase, { auth, provider } from './fire';
 import messageModel from './models/message';
+import moment from 'moment';
 
 class addMessage extends Component {
   constructor() {
@@ -17,13 +18,13 @@ class addMessage extends Component {
       firebase.database().ref('/messages/'+ this.props.match.params.type).orderByChild('timestamp').on('value', (chat) =>{
          let temp_messages = []
          chat.forEach((child) => {
-             temp_messages.push([child.val().name, child.val().message])
+             temp_messages.push([child.val().name, child.val().message, child.val().timestamp])
          })
          this.setState({title: this.props.match.params.id, chat_id: this.props.match.params.type, messages: temp_messages.map((element, index) => {
               if (element[0] == auth.currentUser.displayName) {
-                return <div className="message user" key={index}><p className="author">{element[0]}</p><p className="text">{element[1]}</p></div>  
+                return <div className="message user" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="text">{element[1]}</p></div>  
               } else {
-              return <div className="message" key={index}><p className="author">{element[0]}</p><p className="text">{element[1]}</p></div>
+              return <div className="message" key={index}><div className="author"><div>{element[0]}</div> <div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="text">{element[1]}</p></div>
             }
             })})
       })
