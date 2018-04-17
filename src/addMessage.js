@@ -20,8 +20,12 @@ class addMessage extends Component {
              temp_messages.push([child.val().name, child.val().message])
          })
          this.setState({title: this.props.match.params.id, chat_id: this.props.match.params.type, messages: temp_messages.map((element, index) => {
+              if (element[0] == auth.currentUser.displayName) {
+                return <div className="message user" key={index}><p className="author">{element[0]}</p><p className="text">{element[1]}</p></div>  
+              } else {
               return <div className="message" key={index}><p className="author">{element[0]}</p><p className="text">{element[1]}</p></div>
-          })})
+            }
+            })})
       })
      }
     

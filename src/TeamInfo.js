@@ -19,8 +19,8 @@ class TeamInfo extends Component {
         return response.json().then((json) =>{
             let teams_info = json.teams
             let my_team = teams_info.filter(team => String(team.name).includes(teamSelected))
-            this.setState({my_team_data:my_team.map((element) => 
-              <div className="team-info-container"><h4>{element.name}</h4><img src={require(`./images/${element.logo}`)}/><p>Head coach: {element.head_coach}</p><p>Home field: {element.home_field}</p><img className="football_field" src={require("./images/soccer_field_stadium.jpg")}/></div>) 
+            this.setState({my_team_data:my_team.map((element, index) => 
+              <div key={index} className="team-info-container"><h4>{element.name}</h4><img src={require(`./images/${element.logo}`)}/><p>Head coach: {element.head_coach}</p><p>Home field: {element.home_field}</p><img className="football_field" src={require("./images/soccer_field_stadium.jpg")}/></div>) 
   
             })  
           })  

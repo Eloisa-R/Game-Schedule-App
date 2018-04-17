@@ -15,11 +15,13 @@ import TeamInfo from "./TeamInfo";
 import Chat from "./Chat";
 import addMessage from './addMessage';
 import newChat from './NewChat';
+import Locations from './Locations';
 
 class Main extends Component {
     constructor(){
       super();
       this.showFirst = this.showFirst.bind(this)
+      this.onCloseCoachMark = this.onCloseCoachMark.bind(this)
     }
     
     showMenu() {
@@ -37,20 +39,34 @@ class Main extends Component {
         document.getElementById("cn-overlay").classList.remove("on-overlay");
     }
 
+    onCloseCoachMark(){
+      var closeButton = document.getElementsByClassName("o-coach-mark__got-it pe-label")[0]
+      closeButton.addEventListener("click",function(){
+        sessionStorage.setItem('coachClosed', 'true')
+        console.log("lala")
+      })
+    }
+
     showFirst = () => {
       new CoachMark({
         elementId: 'homeButton',
         opts: {
           title: 'Navigation tip!',
           text: 'Click on the icon to display the menu',
-          gotIt: true
-        }
+          gotIt: true,
+          id: 'my-coach-mark'
+        },
       });
     };
 
     componentDidMount(){
+    if (sessionStorage.getItem('coachClosed') == null){
       this.showFirst()
+      
     }
+   }
+  
+   
     
   render() {
     return (
@@ -75,6 +91,8 @@ class Main extends Component {
            <Route path="/teaminfo/:id" component={TeamInfo}/>
            <Route path="/chat/:id/:type" component={addMessage}/>
            <Route path="/chat/newchat" component={newChat}/>
+           <Route path="matchdetails/(\w+)/locations/:id" component={Locations}/>
+           <Route path="schedule/matchesmonth/(\w+)/locations/:id" component={Locations}/>
            <Redirect from="/" to="/schedule"/>  
         </Switch>
         </div>

@@ -33,6 +33,7 @@ class MatchDetails extends Component {
   
   componentDidMount() {
       var teamSelected = this.props.match.params.id;
+      console.log(this.props.match.params.id)
     
      fetch("https://api.myjson.com/bins/13kt1r").then((response)=>{
         return response.json().then((json) =>{
