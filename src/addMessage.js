@@ -60,10 +60,15 @@ class addMessage extends Component {
       let storageRef = firebase.storage().ref();
       let fileRef = storageRef.child(uploadedFile[0].name);
       let fileFolderRef = storageRef.child(this.state.title + '/' + uploadedFile[0].name);
+      let progMess = document.getElementById("uploadProg");
       let uploadTask = fileFolderRef.put(uploadedFile[0])
       uploadTask.on('state_changed',(snapshot) =>{
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
+        progMess.style.display = "block";
+        progMess.innerHTML = "Upload is " + progress + '% done'
+        if (progress == 100) {
+          window.setTimeout(() => progMess.style.display = "none", 1000);
+        }
       }, (error) => {
         console.log("Oopsie")
       }, () => {
@@ -89,9 +94,9 @@ class addMessage extends Component {
       <div className="new_message-body">
         <div className="chat-header"><a href="#/chat">Back</a><h3>{this.state.title}</h3></div>
         {this.state.messages != "" ?
-        <div className="chat-messages">{this.state.messages}</div>
+        <div className="chat-messages">{this.state.messages}<div id="uploadProg"></div></div>
         :
-        <img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/>
+        <div className="chat-messages"><img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/></div>
         }
         <div className="chat-submit"><form id="addMform"><input id="chatMessage" type="text"/><input onClick={(e) => this.postMessage(e)} type="submit" value="Send"/></form><label htmlFor="inputFiles" className="btn"><img alt="attach" id="attachClip" src={require("./images/Attach-512.png")}/></label><input type="file" id="inputFiles"  onChange={(e) => this.handleFiles(e)}/></div>
       </div>
