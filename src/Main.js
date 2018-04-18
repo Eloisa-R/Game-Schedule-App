@@ -91,8 +91,7 @@ class Main extends Component {
            <Route path="/teaminfo/:id" component={TeamInfo}/>
            <Route path="/chat/:id/:type" component={addMessage}/>
            <Route path="/chat/newchat" component={newChat}/>
-           <Route path="matchdetails/(\w+)/locations/:id" component={Locations}/>
-           <Route path="schedule/matchesmonth/(\w+)/locations/:id" component={Locations}/>
+           <Route path="/locations/:id" component={Locations}/>
            <Redirect from="/" to="/schedule"/>  
         </Switch>
         </div>

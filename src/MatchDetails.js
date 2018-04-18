@@ -33,7 +33,6 @@ class MatchDetails extends Component {
   
   componentDidMount() {
       var teamSelected = this.props.match.params.id;
-      console.log(this.props.match.params.id)
     
      fetch("https://api.myjson.com/bins/13kt1r").then((response)=>{
         return response.json().then((json) =>{
@@ -45,7 +44,7 @@ class MatchDetails extends Component {
             let matches_to_show = []
             temp_matches_list_for_team.forEach((month) => {
                 matches_to_show.push(month.map((element,index)=>
-                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header"><div className="images-team"><img src={require(`./images/${element.logos[0]}`)}/><img src={require(`./images/${element.logos[1]}`)}/></div>{element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><div className="location-div"><img src={require("./images/locations.png")}/>Location: <NavLink to={`${this.props.match.url}/locations/${element.location}`} onClick={this.itemClicked}>{element.location}</NavLink></div></div></div>))})
+                                    <div key={index} className="schedule-team-container"><h3 className="schedule-team-header"><div className="images-team"><img src={require(`./images/${element.logos[0]}`)}/><img src={require(`./images/${element.logos[1]}`)}/></div>{element.teams}</h3><div className="schedule-team-body"><p>Date: {element.date}</p><div className="location-div"><img src={require("./images/locations.png")}/>Location: <NavLink to={`/locations/${element.location}`}>{element.location}</NavLink></div></div></div>))})
  
             let final_result = <div>{matches_to_show}</div>
                 
