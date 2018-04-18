@@ -109,6 +109,10 @@
     color: black;
 }
 
+.month_item > ul {
+    padding: 0px;
+}
+
 .schedule-team-header {
     display: flex;
     text-align: left;
@@ -446,10 +450,12 @@ label{
     display: flex;
     padding-left: 5%;
     padding-right: 5%;
+    width: fit-content;
 }
 
 .month_item{
     padding: 2%;
+    width: fit-content;
 }
 
 .month_menu{
@@ -469,6 +475,7 @@ label{
     display: flex;
     padding-left: 2%;
     padding-right: 2%;
+    width: fit-content;
 }
 
 .images-team > img{

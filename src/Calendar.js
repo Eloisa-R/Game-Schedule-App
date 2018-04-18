@@ -35,7 +35,7 @@ class Calendar extends Component {
       let month_name = date.toLocaleDateString("en-us", {month: "long"})
       let month_array = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
       var month_list = month_array.map((item, index) =>
-          <span key={index} onClick={() => this.hideDiv(index)} className="month_item" id={index}><Pagination.Item>{item}</Pagination.Item></span>)
+          <span key={index} onClick={() => this.hideDiv(index)} className="month_item" id={index}><ul><Pagination.Item>{item}</Pagination.Item></ul></span>)
       let first_group = month_list.slice(0,5)
       let second_group = month_list.slice(5,10)
       let third_group = month_list.slice(10,12)
@@ -107,7 +107,7 @@ class Calendar extends Component {
         }
         
         
-            return <ul className="month_menu"><Pagination><Pagination.Prev id="prevButton" onClick={(e) => this.changeDisplayMenu(e)}/><div id="menuMonths">{months_to_display}</div><Pagination.Next id="nextButton" onClick={(e) => this.changeDisplayMenu(e)}/></Pagination></ul>
+            return <ul className="month_menu"><Pagination><Pagination.Prev id="prevButton" onClick={(e) => this.changeDisplayMenu(e)}/><li id="menuMonths">{months_to_display}</li><Pagination.Next id="nextButton" onClick={(e) => this.changeDisplayMenu(e)}/></Pagination></ul>
     }
 
     componentDidMount() {
