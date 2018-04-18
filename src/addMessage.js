@@ -24,13 +24,13 @@ class addMessage extends Component {
          this.setState({title: this.props.match.params.id, chat_id: this.props.match.params.type, messages: temp_messages.map((element, index) => {
               if (element[0] == auth.currentUser.displayName) {
                 if (element[1].includes("firebasestorage")){
-                  return <div className="message user" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="imageSent"><img alt="sentFile" src={element[1]}/></p></div>
+                  return <div className="message user" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="imageSent"><a href={element[1]}><img alt="sentFile" src={element[1]}/></a></p></div>
                 } else {
                   return <div className="message user" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="text">{element[1]}</p></div>
                 }
               } else {
                 if (element[1].includes("firebasestorage")){
-                  return <div className="message" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="imageSent"><img alt="sentFile" src={element[1]}/></p></div>
+                  return <div className="message" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="imageSent"><a href={element[1]}><img alt="sentFile" src={element[1]}/></a></p></div>
                 } else {
                   return <div className="message" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="text">{element[1]}</p></div>
                 }
@@ -65,9 +65,12 @@ class addMessage extends Component {
       uploadTask.on('state_changed',(snapshot) =>{
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         progMess.style.display = "block";
-        progMess.innerHTML = "Upload is " + progress + '% done'
+        progMess.innerHTML = "Upload is " + parseFloat(progress).toFixed(2) + '% done'
         if (progress == 100) {
-          window.setTimeout(() => progMess.style.display = "none", 1000);
+          window.setTimeout(() => {
+          progMess.style.display = "none";
+          let last_message = document.getElementById("chatMessages");
+          last_message.scrollTop = last_message.scrollHeight}, 1000);
         }
       }, (error) => {
         console.log("Oopsie")
@@ -94,9 +97,9 @@ class addMessage extends Component {
       <div className="new_message-body">
         <div className="chat-header"><a href="#/chat">Back</a><h3>{this.state.title}</h3></div>
         {this.state.messages != "" ?
-        <div className="chat-messages">{this.state.messages}<div id="uploadProg"></div></div>
+        <div className="chat-messages" id="chatMessages">{this.state.messages}<div id="uploadProg"></div></div>
         :
-        <div className="chat-messages"><img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/></div>
+        <div className="chat-messages" id="chatMessages"><img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/></div>
         }
         <div className="chat-submit"><form id="addMform"><input id="chatMessage" type="text"/><input onClick={(e) => this.postMessage(e)} type="submit" value="Send"/></form><label htmlFor="inputFiles" className="btn"><img alt="attach" id="attachClip" src={require("./images/Attach-512.png")}/></label><input type="file" id="inputFiles"  onChange={(e) => this.handleFiles(e)}/></div>
       </div>
