@@ -55,7 +55,7 @@ class Main extends Component {
       document.getElementById("homemade-cm").style.display = "none"
       document.getElementById("cn-overlay").classList.remove("on-overlay")
       let expirDate = new Date()
-      expirDate.setTime(expirDate.getTime() + (24*60*60*1000));
+      expirDate.setTime(expirDate.getTime() + (60*60*1000*24*1000));
       document.cookie="coachmhidden=true;expires=" + expirDate.toUTCString();
     }
 
