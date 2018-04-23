@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider } from './fire';
+import firebase, { auth } from './fire';
 import messageModel from './models/message';
 import moment from 'moment';
 
@@ -22,7 +22,7 @@ class addMessage extends Component {
              temp_messages.push([child.val().name, child.val().message, child.val().timestamp])
          })
          this.setState({title: this.props.match.params.id, chat_id: this.props.match.params.type, messages: temp_messages.map((element, index) => {
-              if (element[0] == auth.currentUser.displayName) {
+              if (element[0] === auth.currentUser.displayName) {
                 if (element[1].includes("firebasestorage")){
                   return <div className="message user" key={index}><div className="author"><div>{element[0]}</div><div>Sent: {moment.unix(element[2]/1000).format("DD/MM/YYYY")}</div></div><p className="imageSent"><a href={element[1]}><img alt="sentFile" src={element[1]}/></a></p></div>
                 } else {
@@ -66,7 +66,7 @@ class addMessage extends Component {
         let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         progMess.style.display = "block";
         progMess.innerHTML = "Upload is " + parseFloat(progress).toFixed(2) + '% done'
-        if (progress == 100) {
+        if (progress === 100) {
           window.setTimeout(() => {
           progMess.style.display = "none";
           let last_message = document.getElementById("chatMessages");
@@ -96,7 +96,7 @@ class addMessage extends Component {
     return (
       <div className="new_message-body">
         <div className="chat-header"><a href="#/chat">Back</a><h3>{this.state.title}</h3></div>
-        {this.state.messages != "" ?
+        {this.state.messages !== "" ?
         <div className="chat-messages" id="chatMessages">{this.state.messages}<div id="uploadProg"></div></div>
         :
         <div className="chat-messages" id="chatMessages"><img alt="loader" id="loaderGif" src={require("./images/load-dribbble.gif")}/></div>

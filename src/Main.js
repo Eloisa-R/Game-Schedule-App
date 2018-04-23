@@ -7,7 +7,6 @@ import {
   Redirect,
   Switch
 } from "react-router-dom";
-import CoachMark from "@pearson-components/coach-mark";
 import Calendar from "./Calendar";
 import Teams from "./Teams";
 import MatchDetails from "./MatchDetails";
@@ -46,7 +45,7 @@ class Main extends Component {
     }
 
     shadowCoach(){
-      if (document.getElementById("homemade-cm").style.display == "") {
+      if (document.getElementById("homemade-cm").style.display === "") {
         document.getElementById("cn-overlay").classList.add("on-overlay")
       }
     }
@@ -76,7 +75,7 @@ class Main extends Component {
         <header className="App-header">
           <h1 className="App-title">NYSL</h1>
         </header>
-        <div className="home"><img id="homeButton" onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
+        <div className="home"><img alt="" id="homeButton" onClick={this.showMenu} src={require("./images/nysl_logo.png")} className="home-icon" /></div>
         <div id="homemade-cm">Click on the logo to see the menu!<div><a onClick={this.hideCoach} id="gotIt">Got it!</a></div></div>
         <ul className='pie'>
           <li className='slice'><div className='slice-contents' onClick={this.hideMenu}><NavLink to="/schedule"><img className="schedule-icon" src={require("./images/schedule.png")} alt=""/></NavLink></div></li>

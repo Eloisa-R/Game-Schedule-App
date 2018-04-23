@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import firebase, { auth, provider } from './fire';
+import firebase, { auth} from './fire';
 import chatModel from './models/chat';
 import messageModel from './models/message';
 

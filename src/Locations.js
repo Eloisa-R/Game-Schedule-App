@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-  NavLink,
-  Route,
   HashRouter
 } from "react-router-dom";
 

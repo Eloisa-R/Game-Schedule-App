@@ -59,17 +59,24 @@ class Chat extends Component {
     if (user) {
       this.setState({ user });
     } 
-  })
-  
-  this.showChats();  
+    })
+    if (this.state.user != null) {
+      this.showChats();  
+    } 
   };
+
+  componentDidUpdate(){
+    if (this.state.user != null) {
+      this.showChats();  
+    } 
+  }
     
   render() {
     return (
       <div className="chat-body">      
         {this.state.user ?
           <div><div className="chat-buttons"><a href="#/chat/newchat"><input type="button" value="+ Start New Chat"/></a><input type="button" onClick={this.signOut} value="Sign Out"/></div>
-          {this.state.chatsDisplay != "" ?
+          {this.state.chatsDisplay !== "" ?
             <div className="chats-content"><div className="chats-content-child"><h3>List of Chats:</h3>
             {this.state.chatsDisplay}</div></div>
           :
